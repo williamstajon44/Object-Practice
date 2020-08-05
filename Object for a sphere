@@ -1,0 +1,107 @@
+package objects1Practice;
+
+public class objects1Practice;
+{
+    public static void main(String[] args)
+    {
+        Sphere s = new Sphere();
+        
+        s.radius = 5.1;
+        s.color = "Black";
+//        
+        Sphere s2 = new Sphere(4.9, "GREEN");
+        
+//        s2.radius = 4.9;
+//        s2.color = "GREEN";
+        
+        System.out.println("First sphere: Radius is " + s.radius + 
+                ", color is " + s.color);
+
+        System.out.println("Second sphere: Radius is " + s2.radius + 
+                ", color is " + s2.color);
+        
+//        double vol1 = s.volume();
+//        
+//        System.out.println("Volume of first is " + vol1);
+//        
+//        System.out.println("First object: " + s.toString());
+
+
+    Beachball b = new Beachball(11.1, "Black", 10.5);
+    
+    System.out.println("Beachball has color " + b.color);
+    System.out.println("Beachball has volume " + b.volume());
+    System.out.println("Beachball data: " + b.toString());
+
+    }
+}
+
+
+
+
+//  Object class review
+
+package objects1Practice;
+
+public class Sphere
+{
+    public double radius;
+    public String color;
+    
+    Sphere()
+    {
+        radius = 1.0;
+        color = "Grey";
+    }
+    
+    Sphere(double radius, String c)
+    {
+        this.radius = radius;
+        color = c;
+    }
+    
+    public double volume()
+    {
+        return 4.0 / 3.0 * Math.PI * Math.pow(this.radius, 3);
+    }
+    
+    public String toString()
+    {
+        return radius + " " + color;
+    }
+}
+
+
+
+
+//
+
+package objects1Practice;
+
+public class Beachball extends Sphere
+{
+    public double psi;
+    
+    Beachball()
+    { radius = 12.0;
+      color = "White";
+      psi = 6.7;
+    }
+    
+    Beachball (double r, String c, double p)
+    {
+        super(r, c);
+        psi = p;
+    }
+    
+    public double volume()   // beachball has lower vol due to seams and parts
+    {
+        return super.volume() * 0.90;
+    }
+    
+    public String toString()
+    {
+        return super.toString() + " " + psi;
+    } 
+}
+
